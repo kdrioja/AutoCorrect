@@ -6,9 +6,21 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.io.File;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Dictionary {
+
+    public static HashMap<String, String> createHashMap(ArrayList<String> sortedDict) {
+        HashMap<String, String> hashMap = new HashMap<>();
+
+        for (int i = 0; i < sortedDict.size(); i++) {
+            String temp = makeAlphabetical(sortedDict.get(i));
+            hashMap.put(temp, sortedDict.get(i));
+        }
+
+        return hashMap;
+    }
 
     public static ArrayList<String> sortDictionary(ArrayList<String> unsorted) {
         ArrayList<String> leftList = new ArrayList<>();
@@ -89,12 +101,14 @@ public class Dictionary {
             while (sc.hasNextLine()) {
                 String newWord = sc.nextLine();
                 dictionary.add(newWord);
-                System.out.println(newWord);
+                //System.out.println(newWord);
             }
         }
         catch (FileNotFoundException e){
             System.out.println("File not found.");
         }
+
+        dictionary = sortDictionary(dictionary);
 
         return dictionary;
     }
