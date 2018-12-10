@@ -41,17 +41,29 @@ public class Dictionary {
         return sorted;
     }
 
-    /*
-    if s1 > s2, it returns positive number
-    if s1 < s2, it returns negative number
-    if s1 == s2, it returns 0
-     */
+
 
     private void mergeSort(ArrayList<String> leftList, ArrayList<String> rightList, ArrayList<String> original) {
         int leftIndex = 0, rightIndex = 0, originalIndex = 0;
 
         while (leftIndex < leftList.size() && rightIndex < rightList.size()) {
 
+            /*
+            if s1 > s2, it returns positive number
+            if s1 < s2, it returns negative number
+            if s1 == s2, it returns 0
+             */
+
+            if (leftList.get(leftIndex).compareTo(rightList.get(rightIndex)) < 0) {
+                original.set(originalIndex, leftList.get(leftIndex));
+                leftIndex++;
+            }
+            else {
+                original.set(originalIndex, rightList.get(rightIndex));
+                rightIndex++;
+            }
+
+            originalIndex++;
         }
 
     }
