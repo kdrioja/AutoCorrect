@@ -1,5 +1,6 @@
 koala
 apple
+tiara
 baby
 zoo
 cat
@@ -10,3 +11,5 @@ royal
 fire
 snowflake
 tide
+purpose
+finals

@@ -39,7 +39,6 @@ public class Dictionary {
     }
 
 
-
     private static void mergeSort(ArrayList<String> leftList, ArrayList<String> rightList, ArrayList<String> original) {
         int leftIndex = 0, rightIndex = 0, originalIndex = 0;
 
@@ -81,6 +80,7 @@ public class Dictionary {
         }
     }
 
+
     public static ArrayList<String> createDictionary() {
         ArrayList<String> dictionary = new ArrayList<>();
         File file = new File("C:\\Users\\KDR\\IdeaProjects\\AutoCorrect\\src\\dictionary.txt");
@@ -98,6 +98,7 @@ public class Dictionary {
 
         return dictionary;
     }
+
 
     public static String makeAlphabetical(String input) {
         char[] characters = input.toCharArray();
