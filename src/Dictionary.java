@@ -3,7 +3,6 @@
  */
 
 import java.io.FileNotFoundException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.io.File;
@@ -12,8 +11,6 @@ import java.util.Scanner;
 public class Dictionary {
 
     public static ArrayList<String> sortDictionary(ArrayList<String> unsorted) {
-        ArrayList<String> sorted = new ArrayList<>();
-
         ArrayList<String> leftList = new ArrayList<>();
         ArrayList<String> rightList = new ArrayList<>();
         int middle;
@@ -35,15 +32,15 @@ public class Dictionary {
             leftList = sortDictionary(leftList);
             rightList = sortDictionary(rightList);
 
-
+            mergeSort(leftList, rightList, unsorted);
         }
 
-        return sorted;
+        return unsorted;
     }
 
 
 
-    private void mergeSort(ArrayList<String> leftList, ArrayList<String> rightList, ArrayList<String> original) {
+    private static void mergeSort(ArrayList<String> leftList, ArrayList<String> rightList, ArrayList<String> original) {
         int leftIndex = 0, rightIndex = 0, originalIndex = 0;
 
         while (leftIndex < leftList.size() && rightIndex < rightList.size()) {
@@ -66,6 +63,22 @@ public class Dictionary {
             originalIndex++;
         }
 
+        ArrayList<String> leftover;
+        int leftoverIndex;
+
+        if (leftIndex >= leftList.size()) {
+            leftoverIndex = rightIndex;
+            leftover = rightList;
+        }
+        else {
+            leftoverIndex = leftIndex;
+            leftover = leftList;
+        }
+
+        for (int i = leftoverIndex; i < leftover.size(); i++) {
+            original.set(originalIndex, leftover.get(i));
+            originalIndex++;
+        }
     }
 
     public static ArrayList<String> createDictionary() {
