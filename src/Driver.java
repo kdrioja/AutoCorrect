@@ -12,42 +12,33 @@ public class Driver {
         ArrayList<String> dict = Dictionary.createDictionary();
         HashMap<String, String> hashMap = Dictionary.createHashMap(dict);
 
-        System.out.print("Welcome!\nType in a word: ");
+        System.out.print("Welcome!\nTo quit enter DONE\nEnter a word: ");
         Scanner reader = new Scanner(System.in);
         String input = reader.next();
 
         while (!input.equals("DONE")) {
             String word = Dictionary.makeAlphabetical(input);
+            //System.out.println(word);
             String suggestion = hashMap.get(word);
+            //System.out.println(suggestion);
 
-            if (suggestion == null) {
-                System.out.println("No suggestions.");
+            if (input.equals(suggestion)) {
+                System.out.println("Correct.\n");
             }
-            else if (input.equals(suggestion)) {
-                System.out.println("Correct.");
+            else if (suggestion != null) {
+                System.out.println("Did you mean " + suggestion + "?\n");
             }
-            else if (word.equals(suggestion)) {
-                System.out.println("Did you mean " + suggestion);
+            else {
+                System.out.println("No suggestions.\n");
             }
 
-
+            System.out.print("Enter a word: ");
+            input = reader.next();
         }
-
+        System.out.println("See you next time!");
     }
 
     public static void main(String[] args) {
-        ArrayList<String> dict = Dictionary.createDictionary();
-
-        //ArrayList<String> sorted = Dictionary.sortDictionary(dict);
-        /*
-        System.out.println();
-        for (int i = 0; i < dict.size(); i++) {
-            System.out.println(dict.get(i));
-        }
-        */
-        HashMap<String, String> hashMap = Dictionary.createHashMap(dict);
-        System.out.println(hashMap.get("oo"));
-
         getInput();
     }
 }
