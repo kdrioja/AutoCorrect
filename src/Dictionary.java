@@ -41,9 +41,18 @@ public class Dictionary {
         return sorted;
     }
 
-    private void mergeSort(ArrayList<String> leftList, ArrayList<String> rightList, ArrayList<String> all) {
-        int leftIndex = 0, rightIndex = 0, allIndex = 0;
+    /*
+    if s1 > s2, it returns positive number
+    if s1 < s2, it returns negative number
+    if s1 == s2, it returns 0
+     */
 
+    private void mergeSort(ArrayList<String> leftList, ArrayList<String> rightList, ArrayList<String> original) {
+        int leftIndex = 0, rightIndex = 0, originalIndex = 0;
+
+        while (leftIndex < leftList.size() && rightIndex < rightList.size()) {
+
+        }
 
     }
 
