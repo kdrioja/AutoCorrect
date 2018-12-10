@@ -1,0 +1,12 @@
+koala
+apple
+baby
+zoo
+cat
+dog
+eggplant
+queue
+royal
+fire
+snowflake
+tide
